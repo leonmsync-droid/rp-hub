@@ -1,0 +1,193 @@
+<?php
+// The RankPortfolio products, grouped into rows by category. Text only; the one live figure per product comes from src/Stats.php.
+// Categories show in the order listed; products keep build order within their row.
+// status: live | preview | soon | later
+
+return [
+    'categories' => [
+        'esports' => 'Esports and games',
+        'developers' => 'Developers',
+        'qa' => 'QA and testing',
+        'climate' => 'Climate and energy',
+        'voice' => 'Voice AI',
+        'iot' => 'IoT data',
+        'attention' => 'Attention',
+    ],
+    'products' => [
+        [
+                'key' => 'cs2',
+            'category' => 'esports',
+            'name' => 'Sponsor Lens',
+            'tag' => 'CS2 · Esports',
+            'status' => 'live',
+            'headline' => 'Which tier-2 CS2 teams draw the biggest live audiences.',
+            'lines' => [
+                'For sponsors, brands and the teams they back',
+                'Official Twitch and Kick streams, sampled live',
+                'Viewers compared with similar events',
+            ],
+            'url' => 'https://cs2.rankportfolio.dev/',
+            'cta' => 'Open Sponsor Lens',
+            'image' => 'assets/cards/cs2.jpg',   // same Counter-Strike 2 art as the Sponsor Lens hero
+        ],
+        [
+                'key' => 'github',
+            'category' => 'developers',
+            'name' => 'Rising Repos',
+            'tag' => 'GitHub · Developers',
+            'status' => 'preview',
+            'headline' => 'New open-source projects gaining traction fastest.',
+            'lines' => [
+                'For developers and tech teams',
+                'GitHub REST API, refreshed daily',
+                'Re-weight the score yourself',
+            ],
+            'url' => 'https://repos.rankportfolio.dev/',
+            'cta' => 'Open Rising Repos',
+            'image' => 'assets/cards/github.svg', // the Rising Repos pixel banner, reshaped for a card
+        ],
+        [
+                'key' => 'cleanpower',
+            'category' => 'climate',
+            'name' => 'Clean Power Momentum',
+            'tag' => 'Energy · Countries',
+            'status' => 'soon',
+            'headline' => 'Countries ranked by how fast their electricity is getting cleaner.',
+            'lines' => [
+                'For the public and the energy sector',
+                'Ember electricity data (CC BY 4.0)',
+                'Refreshed twice a month',
+            ],
+        ],
+        [
+                'key' => 'attention',
+            'category' => 'attention',
+            'name' => 'Attention Index',
+            'tag' => 'Wikipedia · Everyone',
+            'status' => 'later',
+            'headline' => 'What the world is paying attention to, and what’s rising.',
+            'lines' => [
+                'For everyone, and a signal for the other rankings',
+                'Wikimedia Pageviews API',
+                'Refreshed daily',
+            ],
+        ],
+        [
+                'key' => 'chess',
+            'category' => 'esports',
+            'name' => 'Chess Opening Meta',
+            'tag' => 'Chess · Players',
+            'status' => 'later',
+            'headline' => 'Which openings are winning at each rating level.',
+            'lines' => [
+                'For chess players and coaches',
+                'Lichess open database (CC0)',
+                'Refreshed monthly',
+            ],
+        ],
+        [
+            'key' => 'qa',
+            'category' => 'qa',
+            'name' => 'Test Tool Momentum',
+            'tag' => 'QA · Testing',
+            'status' => 'soon',
+            'headline' => 'Which testing tools are gaining ground, and which are fading.',
+            'lines' => [
+                'For QA engineers and teams choosing tools',
+                'npm, PyPI and GitHub data',
+                'Refreshed daily',
+            ],
+        ],
+        [
+            'key' => 'voice',
+            'category' => 'voice',
+            'name' => 'Voice Model Pulse',
+            'tag' => 'Voice AI · Builders',
+            'status' => 'soon',
+            'headline' => 'Open speech and voice models gaining the most use.',
+            'lines' => [
+                'For voice AI builders and product teams',
+                'Hugging Face Hub data on public models',
+                'Refreshed daily',
+            ],
+        ],
+        [
+            'key' => 'iot',
+            'category' => 'iot',
+            'name' => 'Sensor City Index',
+            'tag' => 'IoT · Cities',
+            'status' => 'soon',
+            'headline' => 'Cities ranked by air quality from open community sensors.',
+            'lines' => [
+                'For residents, researchers and city teams',
+                'Open sensor networks such as Sensor.Community',
+                'Refreshed daily',
+            ],
+        ],
+    ],
+    // Countdown cards: one per row, after its rankings. Times in UTC; a card drops off once its event has ended.
+    // Every date checked against its source before going in (last checked 2026-10-22).
+    'countdowns' => [
+        [
+            'category' => 'esports',
+            'auto' => 'cs2-major', // replaced by PandaScore's listing of the next Major once it has one (src/Stats.php)
+            'name' => 'PGL Major Singapore',
+            'starts' => '2026-11-25T00:00:00Z',
+            'ends' => '2026-12-13T23:59:59Z',
+            'when' => '25 Nov – 13 Dec 2026',
+            'place' => 'Singapore',
+            'why' => 'The next CS2 Major, and the first in Southeast Asia',
+            'source' => 'https://en.wikipedia.org/wiki/Counter-Strike_Major_Championships',
+        ],
+        [
+            'category' => 'developers',
+            'name' => 'GitHub Universe',
+            'starts' => '2026-10-28T16:00:00Z',
+            'ends' => '2026-10-30T01:00:00Z',
+            'when' => '28–29 Oct 2026',
+            'place' => 'San Francisco',
+            'why' => 'GitHub’s yearly developer conference',
+            'source' => 'https://githubuniverse.com/',
+        ],
+        [
+            'category' => 'climate',
+            'name' => 'COP31',
+            'starts' => '2026-11-09T06:00:00Z',
+            'ends' => '2026-11-20T21:00:00Z',
+            'when' => '9–20 Nov 2026',
+            'place' => 'Antalya, Türkiye',
+            'why' => 'The UN climate summit',
+            'source' => 'https://en.wikipedia.org/wiki/2026_United_Nations_Climate_Change_Conference',
+        ],
+        [
+            'category' => 'voice',
+            'name' => 'ICASSP 2027',
+            'starts' => '2027-05-16T12:00:00Z',
+            'ends' => '2027-05-21T22:00:00Z',
+            'when' => '16–21 May 2027',
+            'place' => 'Toronto',
+            'why' => 'The biggest yearly conference for speech and audio research',
+            'source' => 'https://signalprocessingsociety.org/',
+        ],
+        [
+            'category' => 'iot',
+            'name' => 'embedded world 2027',
+            'starts' => '2027-03-16T08:00:00Z',
+            'ends' => '2027-03-18T16:00:00Z',
+            'when' => '16–18 Mar 2027',
+            'place' => 'Nuremberg',
+            'why' => 'The largest trade fair for embedded systems and connected devices',
+            'source' => 'https://www.embedded-world.de/',
+        ],
+        [
+            'category' => 'attention',
+            'name' => 'Total solar eclipse',
+            'starts' => '2027-08-02T10:05:00Z',
+            'ends' => '2027-08-02T12:00:00Z',
+            'when' => '2 Aug 2027',
+            'place' => 'Spain, North Africa and the Middle East',
+            'why' => 'Over 6 minutes of totality at its peak, near Luxor, Egypt',
+            'source' => 'https://science.nasa.gov/eclipses/future-eclipses/',
+        ],
+    ],
+];
