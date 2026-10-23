@@ -126,7 +126,6 @@ $faq = [
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
   <title>RankPortfolio</title>
   <meta name="description" content="Small public rankings built from open data, updated automatically.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
