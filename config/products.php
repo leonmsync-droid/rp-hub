@@ -35,7 +35,7 @@ return [
             'category' => 'developers',
             'name' => 'Rising Repos',
             'tag' => 'GitHub · Developers',
-            'status' => 'preview',
+            'status' => 'live',
             'headline' => 'New open-source projects gaining traction fastest.',
             'lines' => [
                 'For developers and tech teams',

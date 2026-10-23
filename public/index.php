@@ -64,6 +64,8 @@ foreach (array_filter($config['countdowns'] ?? [], fn($c) => strtotime($c['ends'
     }
 }
 $e = fn(?string $s): string => htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
+// File times as version tags, so browsers fetch new CSS, JS and the logo after a deploy.
+$v = fn(string $file): int => (int) @filemtime(__DIR__ . '/assets/' . $file);
 // Decorative chart beside the statements: three stacked series rising left to right (not real data).
 // Drawn to stretch to any width: strokes and dots keep their size via non-scaling strokes.
 function heroChart(): string
@@ -129,12 +131,12 @@ $faq = [
   <title>RankPortfolio</title>
   <meta name="description" content="Small public rankings built from open data, updated automatically.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/hub.js" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=<?= $v('style.css') ?>">
+  <script src="assets/hub.js?v=<?= $v('hub.js') ?>" defer></script>
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="./"><img src="assets/logo.svg" width="28" height="28" alt="">RankPortfolio</a>
+    <a class="brand" href="./"><img src="assets/logo.svg?v=<?= $v('logo.svg') ?>" width="28" height="28" alt="">RankPortfolio</a>
     <nav>
       <div class="menu">
         <a href="#rankings" aria-haspopup="true">Rankings<svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></a>
@@ -164,7 +166,7 @@ $faq = [
       <?php foreach ($rows as $cat => $row): ?>
       <div class="category" id="cat-<?= $e($cat) ?>" aria-labelledby="cat-<?= $e($cat) ?>-title">
         <div class="category-head">
-          <h2 id="cat-<?= $e($cat) ?>-title"><?= $e($row['label']) ?></h2>
+          <h2 class="sr" id="cat-<?= $e($cat) ?>-title"><?= $e($row['label']) ?></h2>
           <div class="arrows" aria-label="Scroll <?= $e($row['label']) ?>">
             <button type="button" class="arrow prev" aria-label="Previous"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
             <button type="button" class="arrow next" aria-label="Next"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
@@ -180,7 +182,7 @@ $faq = [
             <?php if (!empty($p['image'])): ?><img class="card-art" src="<?= $e($p['image']) ?>" alt="" loading="lazy"><?php endif; ?>
             <div class="card-top">
               <div class="mark"><span class="swatch" aria-hidden="true"></span><span class="mark-name"><?= $e($p['name']) ?></span></div>
-              <span class="tag tag-<?= $e($p['status']) ?>"><?= $e($statusLabel[$p['status']]) ?></span>
+              <span class="tag tag-<?= $e($p['status']) ?>"><span><?= $e($statusLabel[$p['status']]) ?></span></span>
             </div>
             <h3 class="card-head"><?= $e($p['headline']) ?></h3>
             <p class="card-lines"><?= implode('<span class="dot" aria-hidden="true">·</span>', array_map(fn($l) => '<span class="line">' . $e($l) . '</span>', $p['lines'])) ?></p>

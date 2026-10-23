@@ -38,7 +38,7 @@ p, h1, h2 { margin: 0; }
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 .brand { display: flex; align-items: center; gap: 0; font-weight: 500; font-size: 19px; letter-spacing: .015em; }
-.brand img { width: 30px; height: 30px; margin-right: -2px; }
+.brand img { width: 30px; height: 30px; margin-right: -2px; transform: translateY(-3px); }
 .top nav { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 13px; font-weight: 400; }
 .top nav a { transition: color .2s; }
 .top nav a:hover { color: var(--text); }
@@ -127,7 +127,7 @@ p, h1, h2 { margin: 0; }
 
 /* Card rows: one per category, each scrolling sideways on its own */
 .rankings { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 4.5vw, 56px); }
-.category-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 var(--gutter) 14px; }
+.category-head { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 0 var(--gutter) 14px; }
 .category-head h2 { color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; }
 .track {
   display: flex;
@@ -154,7 +154,9 @@ p, h1, h2 { margin: 0; }
 .mark-name { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
 .swatch { width: 10px; height: 10px; border-radius: 50%; flex: none; }
 .tag { padding: 3px 10px; border-radius: 999px; background: var(--tag); color: var(--muted); font-size: 12px; font-weight: 400; letter-spacing: .02em; white-space: nowrap; }
-.tag-live, .tag-preview { color: var(--live); }
+.tag-live, .tag-preview { color: #b4ff39; }
+/* one solid blue: the middle of the coming-soon dot's blend */
+.tag-soon { color: #6197f2; }
 .card-head { font-size: 20px; font-weight: 300; line-height: 1.35; letter-spacing: -.01em; }
 .card-lines { margin-top: 8px; color: var(--muted); font-size: 13px; font-weight: 400; }
 .card-lines .dot { margin: 0 8px; color: var(--soft); }
